@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:cassandra="http://www.springframework.org/schema/data/cassandra"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/cql http://www.springframework.org/schema/data/cassandra/spring-cql-1.0.xsd
+    http://www.springframework.org/schema/data/cassandra http://www.springframework.org/schema/data/cassandra/spring-cassandra-1.0.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    
+    
+    <!-- spring-cassandra -->
+    <cassandra:cluster contact-points="10.170.7.22" port="9042" username="cassandra" password="cassandra" />
+    
+    <!-- 当前使用scheam -->
+      <cassandra:session keyspace-name="dbtest" />
+      
+    <!-- orm -->
+     <cassandra:mapping />
+     
+    <!-- 类型转换 -->
+      <cassandra:converter />
+      
+    <!-- cassandra operater -->
+      <cassandra:template id="cqlTemplate" />
+      
+    <!-- spring data 接口 -->
+      <cassandra:repositories base-package="com.dbtest.repository" />
+
+</beans>
